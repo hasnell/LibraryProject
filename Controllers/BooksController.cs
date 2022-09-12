@@ -158,5 +158,13 @@ namespace LibraryProject.Controllers
         {
           return (_context.Books?.Any(e => e.BookId == id)).GetValueOrDefault();
         }
+
+        public IActionResult Rental()
+        {
+            return View();
+        }
+
     }
+
+        
 }

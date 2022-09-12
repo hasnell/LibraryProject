@@ -1,18 +1,113 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
-@media (min-width: 768px) {
-  html {
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap') @media (min-width: 768px)
+
+{
+    html
+
+{
     font-size: 16px;
-  }
+}
+
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
+}
+
+.navbar {
+    border-bottom: 10px solid #0288d1;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+    a:hover {
+    }
+
+.header {
+    text-align: center;
+    padding: 25px;
+    border-bottom: 4px solid #0288d1;
+    font-family: 'Roboto', sans-serif;
+}
+
+.sel, .events p {
+    font-size: 25px;
+}
+
+.picks {
+    padding: 14px;
+}
+
+.hoverwrap {
+    position: relative;
+    max-width: 200px;
+    display: inline-block;
+}
+
+
+    .hoverwrap img {
+        width: 100%;
+    }
+
+
+.hovercap {
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    padding-top: 30%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+
+.hovercap {
+    visibility: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.hoverwrap:hover .hovercap {
+    visibility: visible;
+    opacity: 1;
+}
+
+.button {
+    background-color: #0288d1;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.events {
+    border-top: 4px solid #0288d1;
+}
+
+.last {
+    border-bottom: 4px solid #0288d1;
+}
+
+.hide {
+    display: none;
 }
