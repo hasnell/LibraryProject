@@ -10,11 +10,12 @@
     <a class="button" asp-action="Create">Create New</a>
 </div>
 <!--Search Bar Here-->
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search..." title="Type in a name">
 
 
-<table class="table">
-    <thead>
-        <tr>
+<table class="table" id="myTable">
+    
+        <tr class="header">
             <th>
                 @Html.DisplayNameFor(model => model.Isbn)
             </th>
@@ -32,8 +33,7 @@
             </th>
             <th></th>
         </tr>
-    </thead>
-    <tbody>
+    
 @foreach (var item in Model) {
         <tr>
             <td>
@@ -59,16 +59,39 @@
             </td>
         </tr>
 }
-    </tbody>
 </table>
 
             @section scripts{
-                <script>
-                    $(function (){
-                        $(#basic-text1).click(function (){
-                            $("Form").submit();
-                        })
+    <script>
+        function myFunction() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                a = tr[i].getElementsByTagName("td")[0];
+                b = tr[i].getElementsByTagName("td")[1];
+                c = tr[i].getElementsByTagName("td")[2];
+                d = tr[i].getElementsByTagName("td")[3];
+                e = tr[i].getElementsByTagName("td")[4];
+                if (a || b || c || d || e) {
+                    txtValueA = a.textContent || a.innerText;
+                    txtValueB = b.textContent || b.innerText;
+                    txtValueC = c.textContent || c.innerText;
+                    txtValueD = d.textContent || d.innerText;
+                    txtValueE = e.textContent || e.innerText;
+                    if (txtValueA.toUpperCase().indexOf(filter) > -1
+                        || txtValueB.toUpperCase().indexOf(filter) > -1
+                        || txtValueC.toUpperCase().indexOf(filter) > -1
+                        || txtValueD.toUpperCase().indexOf(filter) > -1
+                        || txtValueE.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
                     }
-                    )
-                </script>
+                }
+            }
+        }
+    </script>
             }
