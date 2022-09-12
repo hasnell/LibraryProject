@@ -18,6 +18,7 @@ namespace LibraryProject.Controllers
             _context = context;
         }*/
 
+
         // GET: Books
         public async Task<IActionResult> Index()
         {
@@ -159,12 +160,10 @@ namespace LibraryProject.Controllers
           return (_context.Books?.Any(e => e.BookId == id)).GetValueOrDefault();
         }
 
-        public IActionResult Rental()
-        {
-            return View();
-        }
+
+
 
     }
 
-        
+
 }

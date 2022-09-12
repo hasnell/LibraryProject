@@ -1,6 +1,7 @@
 html {
     font-size: 14px;
 }
+@import '~mdb-ui-kit/src/scss/mdb.pro.scss';
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap') @media (min-width: 768px)
 
@@ -18,8 +19,9 @@ html {
     min-height: 100%;
 }
 
+/* top bar styling */
 .navbar {
-    border-bottom: 10px solid #0288d1;
+    border-bottom: 3px solid #0288d1;
 }
 
 body {
@@ -31,9 +33,8 @@ a {
     text-decoration: none;
 }
 
-    a:hover {
-    }
 
+/* page headings */
 .header {
     text-align: center;
     padding: 25px;
@@ -41,26 +42,29 @@ a {
     font-family: 'Roboto', sans-serif;
 }
 
+/* p tags in events section*/
 .sel, .events p {
     font-size: 25px;
 }
 
+/*our picks for the mont*/
 .picks {
     padding: 14px;
 }
 
+/*hover effect on book covers*/
 .hoverwrap {
     position: relative;
     max-width: 200px;
     display: inline-block;
 }
 
-
-    .hoverwrap img {
+ .hoverwrap img {
         width: 100%;
-    }
 
+ }
 
+ /* caption when hovering on book covers*/
 .hovercap {
     box-sizing: border-box;
     height: 100%;
@@ -87,6 +91,7 @@ a {
     opacity: 1;
 }
 
+/* general button styling*/
 .button {
     background-color: #0288d1;
     border: none;
@@ -100,10 +105,31 @@ a {
     cursor: pointer;
 }
 
+/* Create New Button*/
+.create{
+    text-align: center;
+}
+
+/* smaller buttons (on selection page) */
+.button-sm {
+    background-color: #0288d1;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+/* events on home screen*/
 .events {
     border-top: 4px solid #0288d1;
 }
 
+/*last section on home screen*/
 .last {
     border-bottom: 4px solid #0288d1;
 }
@@ -111,3 +137,5 @@ a {
 .hide {
     display: none;
 }
+
+

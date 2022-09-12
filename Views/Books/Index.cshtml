@@ -3,12 +3,19 @@
 @{
     ViewData["Title"] = "Index";
 }
+<div class="header">
+<h1>Check Out Our Selection</h1>
+</div>
+<div class="create">
+    <a class="button" asp-action="Create">Create New</a>
+</div>
+<!--Search Bar Here-->
+<form asp-controller="Books" asp-action="Search">
+    <div class="row input-group">
+        <input type="text" name="search" id="search" class="form-control" />
+    </div>
+</form>
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -49,9 +56,9 @@
                 @Html.DisplayFor(modelItem => item.Category)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.BookId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.BookId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.BookId">Delete</a>
+                    <a class="button-sm"  asp-action="Edit" asp-route-id="@item.BookId">Edit</a> 
+                    <a class="button-sm" asp-action="Details" asp-route-id="@item.BookId">Details</a> 
+                    <a class="button-sm" asp-action="Delete" asp-route-id="@item.BookId">Delete</a>
 
             </td>
         </tr>

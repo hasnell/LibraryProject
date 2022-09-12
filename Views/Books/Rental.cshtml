@@ -1,5 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Rental";
+
 }
 <body class="template-body">
     <div class="card mt-2">
@@ -7,10 +8,14 @@
 
             <h1 class="m-0 title fullTitleLeft"> Library of Revature</h1>
             <!--Search Bar Here-->
-            <div class="search-wrap">
-                <label for="search">Search Our Catalog!</label>
-                <input type="search" id="search" />
-            </div>
+            <form asp-action="Rental">
+                <div class="row input-group">
+                    <input type="text" name="search" id="search" class="form-control" />
+                    <div class="input-group-btn">
+                        <input type="submit" value="Search" class="btn btn-primary" />
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 
@@ -153,7 +158,6 @@
                 </div>
             </div>
         </div>
-    </div>
     </div>
     <div class="DVSL-font-height"><div style="font: 12px Arial;">Mg9!</div></div>
 </body>

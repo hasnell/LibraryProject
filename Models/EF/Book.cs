@@ -20,5 +20,24 @@ namespace LibraryProject.Models.EF
 
         public virtual ICollection<CurrentLoan> CurrentLoans { get; set; }
         public virtual ICollection<History> Histories { get; set; }
+
+        private readonly LibraryAPPDBContext _context = new LibraryAPPDBContext();
+
+        public List<Book>SeachBooks(string search)
+        {
+        int id;
+            bool y = Int32.TryParse(search, out id);
+            if (!y)
+            {
+                id= 0;
+                return _context.Books
+                    .Where(x =>
+                    x.BookId == id ||
+                    x.Title.Contains(search) ||
+                    x.Author.Contains(search))
+                    .ToList();
+                    
+            } return (null);
+        }
     }
 }
