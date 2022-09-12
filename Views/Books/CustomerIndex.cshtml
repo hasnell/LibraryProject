@@ -10,7 +10,11 @@
     <a class="button" asp-action="Create">Create New</a>
 </div>
 <!--Search Bar Here-->
-
+<form>
+    <div class="row input-group">
+        <input type="text" name="search" id="search" class="form-control" />
+    </div>
+</form>
 
 <table class="table">
     <thead>
@@ -61,14 +65,3 @@
 }
     </tbody>
 </table>
-
-            @section scripts{
-                <script>
-                    $(function (){
-                        $(#basic-text1).click(function (){
-                            $("Form").submit();
-                        })
-                    }
-                    )
-                </script>
-            }

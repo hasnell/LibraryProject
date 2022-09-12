@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LibraryProject.Models.EF;
+using Microsoft.Data.SqlClient.Server;
 
 namespace LibraryProject.Controllers
 {
@@ -18,13 +19,21 @@ namespace LibraryProject.Controllers
             _context = context;
         }*/
 
-
+        string userType = "customer";
         // GET: Books
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string childname)
         {
-              return _context.Books != null ? 
-                          View(await _context.Books.ToListAsync()) :
-                          Problem("Entity set 'LibraryAPPDBContext.Books'  is null.");
+            if (userType == "admin")
+            {
+                return _context.Books != null ?
+                            View(await _context.Books.ToListAsync()) :
+                            Problem("Entity set 'LibraryAPPDBContext.Books'  is null.");
+
+            }
+            return _context.Books != null ?
+                            View("CustomerIndex", await _context.Books.ToListAsync()) :
+                            Problem("Entity set 'LibraryAPPDBContext.Books'  is null.");
+
         }
 
         // GET: Books/Details/5
