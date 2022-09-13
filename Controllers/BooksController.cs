@@ -173,7 +173,7 @@ namespace LibraryProject.Controllers
           return (_context.Books?.Any(e => e.BookId == id)).GetValueOrDefault();
         }
 
-        //Rent Now
+        //Rent Now Method
         public static int Transfer(int bookID)
         {
             SqlConnection connection = new SqlConnection("Server= nikhilshah-project-server.database.windows.net; database=libraryAPPDB; user id=Project;password=Cohort@1234");
