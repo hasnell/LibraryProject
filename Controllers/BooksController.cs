@@ -9,6 +9,7 @@ using LibraryProject.Models.EF;
 using Microsoft.Data.SqlClient.Server;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.Security.Claims;
 
 namespace LibraryProject.Controllers
 {
@@ -21,11 +22,21 @@ namespace LibraryProject.Controllers
             _context = context;
         }*/
 
-        string userType = "customer";
+        string userType = "";
         // GET: Books
         public async Task<IActionResult> Index(string childname)
         {
-            if (userType == "admin")
+            ClaimsPrincipal currentUser = this.User;
+            try
+            {
+                userType = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
+            }
+            catch (Exception ex)
+            {
+                userType = "";
+            }
+
+            if (userType == "682b3b24-a126-4a59-a0a6-1c1ab8de9598")
             {
                 return _context.Books != null ?
                             View(await _context.Books.ToListAsync()) :
