@@ -1,9 +1,10 @@
 ﻿@model LibraryProject.Models.EF.Book
-
+@using LibraryProject.Controllers;
 @{
     ViewData["Title"] = "Details";
-}
+    
 
+}
 
 <div>
     <h4>Book Details</h4>
@@ -41,9 +42,13 @@
         </dd>
     </dl>
     </div>
-    <a class="button" href="#">Rent This Book</a>
 </div>
 <div>
-    <a asp-action="Index">Go to Index</a> |
-    <a asp-controller="Home" asp-action="Index">Go Home</a>
+    @{
+        var item = Model.BookId;
+    }
+    <a class="button-sm" asp-action="RentPage" asp-route-id="@item">Rent</a>
+    <a class="button-sm" asp-action="Index">Go to Index</a>
+    <a class="button-sm" asp-controller="Home" asp-action="Index">Go Home</a>
 </div>
+

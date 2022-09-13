@@ -1,0 +1,56 @@
+﻿@model LibraryProject.Models.EF.Book
+@using LibraryProject.Controllers;
+@{
+    ViewData["Title"] = "Rent";
+
+
+}
+
+<div class="header">
+    <h1 class="display-4">Book Rental Confirmed!</h1>
+    <h2>Thanks for supporting your local Library!</h2>
+</div>
+    <div class="dets">
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Isbn)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Isbn)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Author)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Author)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.PublishYear)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.PublishYear)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Category)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Category)
+            </dd>
+        </dl>
+    </div>
+<div>
+    <a class="button-sm" asp-action="Index">Go to Index</a> 
+    <a class="button-sm" asp-controller="Home" asp-action="Index">Go Home</a>
+</div>
+<div class="method">
+@{
+    var id = Model.BookId;
+    @BooksController.Transfer(id)
+}
+</div>

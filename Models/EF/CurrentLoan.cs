@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
+using System.Data.Common;
 
 namespace LibraryProject.Models.EF
 {
@@ -12,4 +14,5 @@ namespace LibraryProject.Models.EF
 
         public virtual Book Book { get; set; } = null!;
     }
+
 }

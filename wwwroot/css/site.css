@@ -138,4 +138,11 @@ a {
     display: none;
 }
 
+#myInput{
+    background-image: url('search.png'));
+}
+
+.method{
+    color: white;
+}
 

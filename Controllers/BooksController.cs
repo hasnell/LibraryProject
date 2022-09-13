@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LibraryProject.Models.EF;
 using Microsoft.Data.SqlClient.Server;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace LibraryProject.Controllers
 {
@@ -75,6 +77,8 @@ namespace LibraryProject.Controllers
             }
             return View(book);
         }
+
+
 
         // GET: Books/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -169,10 +173,41 @@ namespace LibraryProject.Controllers
           return (_context.Books?.Any(e => e.BookId == id)).GetValueOrDefault();
         }
 
+        //Rent Now
+        public static int Transfer(int bookID)
+        {
+            SqlConnection connection = new SqlConnection("Server= nikhilshah-project-server.database.windows.net; database=libraryAPPDB; user id=Project;password=Cohort@1234");
 
+            SqlCommand cmd3 = new SqlCommand("insert into CustBooks (bookRental) select title from Books where bookID = @bookID", connection);
 
+            cmd3.Parameters.AddWithValue("@bookID", bookID);
 
+            connection.Open();
+            cmd3.ExecuteNonQuery();
+            connection.Close();
+
+            return (bookID);
+
+        }
+        // Rent Page
+        public async Task<IActionResult> RentPage(int id)
+        {
+            if (id == null || _context.Books == null)
+            {
+                return NotFound();
+            }
+
+            var rent = await _context.Books
+                .FirstOrDefaultAsync(m => m.BookId == id);
+            if (rent == null)
+            {
+                return NotFound();
+            }
+
+            return View(rent);
+        }
     }
-
-
 }
+
+
+

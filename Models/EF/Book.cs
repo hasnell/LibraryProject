@@ -1,5 +1,9 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.SqlClient;
+
 
 namespace LibraryProject.Models.EF
 {
@@ -23,21 +27,11 @@ namespace LibraryProject.Models.EF
 
         private readonly LibraryAPPDBContext _context = new LibraryAPPDBContext();
 
-        public List<Book>SeachBooks(string search)
-        {
-        int id;
-            bool y = Int32.TryParse(search, out id);
-            if (!y)
-            {
-                id= 0;
-                return _context.Books
-                    .Where(x =>
-                    x.BookId == id ||
-                    x.Title.Contains(search) ||
-                    x.Author.Contains(search))
-                    .ToList();
-                    
-            } return (null);
-        }
+
+
+
     }
+
+
 }
+
